@@ -5,7 +5,6 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
 import { State, process } from '@progress/kendo-data-query';
 
 import { Item } from '../model/item';
-import { EditService } from '../services/edit.service';
 
 import { map } from 'rxjs/operators/map';
 import { GenericService } from 'app/services/generic.service';

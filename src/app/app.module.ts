@@ -10,16 +10,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { DialogModule } from '@progress/kendo-angular-dialog';
 import { GridModule } from '@progress/kendo-angular-grid';
-
+import { LayoutModule } from '@progress/kendo-angular-layout';
+ 
 import { InventoryComponent } from 'app/inventory/inventory.component';
 import { EditInventoryComponent } from './edit-inventory/edit-inventory.component';
 import { GenericService } from 'app/services/generic.service';
 import { Item } from './model/item';
+import { Customer } from './model/customer';
+import { CustomersComponent } from './customers/customers.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 @NgModule({
   declarations: [
     InventoryComponent,
     AppComponent,
-    EditInventoryComponent
+    EditInventoryComponent,
+    CustomersComponent,
+    EditCustomerComponent
   ],
   imports: [
     HttpClientModule,
@@ -28,14 +34,20 @@ import { Item } from './model/item';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     GridModule,
-    DialogModule
+    DialogModule,
+    LayoutModule
   ],
   providers: [  
     {
       deps: [HttpClient],
       provide: 'InventoryService',
       useFactory: (jsonp:HttpClient) => (new GenericService<Item>(jsonp,'service/item'))
-    }
+    },
+    {
+      deps: [HttpClient],
+      provide: 'CustomerService',
+      useFactory: (jsonp:HttpClient) => (new GenericService<Customer>(jsonp,'service/customer'))
+    }    
   ],
   bootstrap: [AppComponent]
 })

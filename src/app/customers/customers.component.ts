@@ -41,28 +41,32 @@ export class CustomersComponent implements OnInit {
       this.editService.read();
   }
 
-  public addHandler() {
+  public addCustomerHandler() {
       this.editDataItem = new Customer();
       this.isNew = true;
   }
 
-  public editHandler({dataItem}) {
+  public editCustomerHandler({dataItem}) {
       this.editDataItem = dataItem;
       this.isNew = false;
   }
 
-  public cancelHandler() {
+  public cancelCustomerHandler() {
       this.editDataItem = undefined;
   }
 
-  public saveHandler(customer: Customer) {
+  public saveCustomerHandler(customer: Customer) {
       this.editService.save(customer, this.isNew);
 
       this.editDataItem = undefined;
   }
 
-  public removeHandler({dataItem}) {
+  public removeCustomerHandler({dataItem}) {
       this.editService.remove(dataItem);
   }
-
+  public addOrderHandler({dataItem}){
+      this.editDataItem = dataItem;
+      this.isNew = false;
+      console.log('AddOrderHandler' + dataItem);
+  }
 }

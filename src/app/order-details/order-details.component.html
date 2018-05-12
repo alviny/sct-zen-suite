@@ -1,0 +1,16 @@
+<kendo-grid
+[data]="view | async"
+[pageSize]="5"
+[skip]="skip"
+[pageable]="true"
+[scrollable]="'none'"
+(pageChange)="pageChange($event)"
+>
+
+  <kendo-grid-column field="ProductID" title="Product ID" width="120">
+  </kendo-grid-column>
+  <kendo-grid-column field="ProductName" title="Product Name">
+  </kendo-grid-column>
+  <kendo-grid-column field="UnitPrice" title="Unit Price" format="{0:c}">
+  </kendo-grid-column>
+</kendo-grid>

@@ -19,13 +19,19 @@ import { Item } from './model/item';
 import { Customer } from './model/customer';
 import { CustomersComponent } from './customers/customers.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { OrdersComponent } from './orders/orders.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 @NgModule({
   declarations: [
     InventoryComponent,
     AppComponent,
     EditInventoryComponent,
     CustomersComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    OrdersComponent,
+    EditOrderComponent,
+    OrderDetailsComponent
   ],
   imports: [
     HttpClientModule,

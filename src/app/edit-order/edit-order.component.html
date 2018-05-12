@@ -1,0 +1,34 @@
+<kendo-dialog *ngIf="active" (close)="closeForm()">
+  <kendo-dialog-titlebar>
+    {{ isNew ? 'Add new item' : 'Edit item' }}
+  </kendo-dialog-titlebar>
+
+    <form novalidate [formGroup]="editForm">
+        <div class="form-group">
+            <label for="firstName" class="control-label">First Name</label>
+
+            <input type="text" class="k-textbox" formControlName="firstName" />
+
+            <div
+                class="k-tooltip k-tooltip-validation"
+                [hidden]="editForm.controls.firstName.valid || editForm.controls.firstName.pristine">
+                First Name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="control-label">Last Name</label>
+
+            <input type="text" class="k-textbox" formControlName="lastName" />
+
+            <div
+                class="k-tooltip k-tooltip-validation"
+                [hidden]="editForm.controls.lastName.valid || editForm.controls.lastName.pristine">
+                Last Name is required
+            </div>
+        </div>                
+    </form>
+    <kendo-dialog-actions>
+        <button class="k-button" (click)="onCancel($event)">Cancel</button>
+        <button class="k-button k-primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+    </kendo-dialog-actions>
+</kendo-dialog>

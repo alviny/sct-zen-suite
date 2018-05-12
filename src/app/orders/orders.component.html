@@ -1,0 +1,26 @@
+<kendo-grid
+[data]="view | async"
+[pageSize]="pageSize"
+[skip]="skip"
+[sortable]="true"
+[sort]="sort"
+[pageable]="true"
+[height]="550"
+(dataStateChange)="dataStateChange($event)"
+(add)="addCustomerOrderHandler($event)"
+>
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add new</button>
+  </ng-template>
+  <kendo-grid-column field="id" width="200" title="Reseller ID"></kendo-grid-column>
+  <kendo-grid-column field="firstName" width="200" title="First Name"></kendo-grid-column>
+  <kendo-grid-column field="lastName"  width="200" title="Last Name"></kendo-grid-column>
+  <div *kendoGridDetailTemplate="let dataItem">
+    <order-details [customer]="dataItem"></order-details>
+  </div>
+</kendo-grid>
+
+<edit-order [model]="customerOrder" [isNew]="isNew"
+  (save)="saveCustomerOrderHandler($event)"
+  (cancel)="cancelCustomerOrderHandler()">
+</edit-order >

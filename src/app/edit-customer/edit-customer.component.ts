@@ -45,6 +45,4 @@ export class EditCustomerComponent implements OnInit {
       this.active = false;
       this.cancel.emit();
   }
-
-
 }

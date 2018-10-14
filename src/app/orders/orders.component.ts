@@ -22,6 +22,7 @@ export class OrdersComponent implements OnInit,AfterViewInit {
   public sort: Array<SortDescriptor> = [];
   public pageSize = 10;
   public skip = 0;
+  public init:boolean = false;
 
   @ViewChild(GridComponent) grid: GridComponent;
 
@@ -49,7 +50,10 @@ export class OrdersComponent implements OnInit,AfterViewInit {
 
   public ngAfterViewInit(): void {
       // Expand the first row initially
-      this.grid.expandRow(0);
+      if ( this.init === true){
+        this.grid.expandRow(0);
+      }
+
   }
 
   private loadData(): void {
@@ -69,5 +73,9 @@ export class OrdersComponent implements OnInit,AfterViewInit {
   public cancelCustomerOrderHandler(){
     console.log('cancelCustomerOrderHandler');
 
+  }
+  public search(){
+    console.log('search');
+    this.init = true;
   }
 }

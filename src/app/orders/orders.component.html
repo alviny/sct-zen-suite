@@ -1,4 +1,5 @@
-<kendo-grid
+<app-search-customer></app-search-customer>
+<kendo-grid *ngIf="init" 
 [data]="view | async"
 [pageSize]="pageSize"
 [skip]="skip"

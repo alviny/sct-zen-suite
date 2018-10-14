@@ -17,11 +17,15 @@ import { EditInventoryComponent } from './edit-inventory/edit-inventory.componen
 import { GenericService } from 'app/services/generic.service';
 import { Item } from './model/item';
 import { Customer } from './model/customer';
+import { CustomerOrder } from './model/customer_order';
 import { CustomersComponent } from './customers/customers.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { OrdersComponent } from './orders/orders.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { SearchCustomerComponent } from './search-customer/search-customer.component';
 @NgModule({
   declarations: [
     InventoryComponent,
@@ -31,7 +35,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     EditCustomerComponent,
     OrdersComponent,
     EditOrderComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    SearchCustomerComponent
   ],
   imports: [
     HttpClientModule,
@@ -41,7 +46,9 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     ReactiveFormsModule,
     GridModule,
     DialogModule,
-    LayoutModule
+    LayoutModule, 
+    InputsModule,
+    DropDownsModule
   ],
   providers: [  
     {
@@ -53,7 +60,13 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
       deps: [HttpClient],
       provide: 'CustomerService',
       useFactory: (jsonp:HttpClient) => (new GenericService<Customer>(jsonp,'service/customer'))
-    }    
+    },
+    {
+      deps: [HttpClient],
+      provide: 'OrderService',
+      useFactory: (jsonp:HttpClient) => (new GenericService<CustomerOrder>(jsonp,'service/order'))
+
+    } 
   ],
   bootstrap: [AppComponent]
 })

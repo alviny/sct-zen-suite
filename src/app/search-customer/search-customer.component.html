@@ -1,0 +1,14 @@
+   <div class="example-wrapper">
+      <kendo-autocomplete 
+                      [data]="view | async" 
+                      [valueField]="'firstName'" 
+                      [placeholder]="'e.g. Jean'"
+                      [filterable]="true"
+                      (valueChange)="valueChange($event)"
+                      (filterChange)="filterChange($event)"
+                      (open)="open()"
+                      (close)="close()"
+                      (focus)="focus()"
+                      (blur)="blur()">
+        </kendo-autocomplete>
+  </div>

@@ -24,7 +24,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DropDownsModule, AutoCompleteModule } from '@progress/kendo-angular-dropdowns';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
 @NgModule({
   declarations: [

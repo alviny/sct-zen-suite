@@ -21,21 +21,20 @@ export class SearchCustomerComponent implements OnInit {
     skip: 0,
     take: 10
   };
-  ngOnInit(): void {
-    interval(1000).pipe(
-      map((x) =>  console.log('data:' + x)),
-      bufferCount(5)
-    );    
 
+  
+  ngOnInit(): void {
   }
   constructor(@Inject('CustomerService') service: any) {
     this.view = service;
-
-    this.view.read();
-
+    service.read();
   } 
   public valueChange(value: any): void {
-    console.log('valueChange:'+value);
+    console.log('valueChange:'+value.id);
+    console.log('valueChange:'+value.firstName);
+    console.log('valueChange:'+value.lastName);
+
+
   }
 
   public filterChange(filter: any): void {

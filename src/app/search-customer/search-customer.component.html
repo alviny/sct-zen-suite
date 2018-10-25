@@ -1,14 +1,14 @@
    <div class="example-wrapper">
-      <kendo-autocomplete 
+      <kendo-combobox
                       [data]="view | async" 
-                      [valueField]="'firstName'" 
+                      [valueField]="'id'" 
+                      [textField]="'firstName'"
                       [placeholder]="'e.g. Jean'"
-                      [filterable]="true"
                       (valueChange)="valueChange($event)"
                       (filterChange)="filterChange($event)"
                       (open)="open()"
                       (close)="close()"
                       (focus)="focus()"
                       (blur)="blur()">
-        </kendo-autocomplete>
+      </kendo-combobox>
   </div>

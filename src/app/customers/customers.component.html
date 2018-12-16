@@ -5,7 +5,7 @@
 [pageable]="true" [sortable]="true"
 (dataStateChange)="onStateChange($event)"
 (edit)="editCustomerHandler($event)" (remove)="removeCustomerHandler($event)"
-(add)="addCustomerHandler($event)"
+(add)="addCustomerHandler()"
 >
   <ng-template kendoGridToolbarTemplate>
     <button kendoGridAddCommand>Add new</button>

@@ -14,7 +14,7 @@ import { bufferCount } from 'rxjs/operators/bufferCount';
 })
 export class SearchCustomerComponent implements OnInit {
   public listItems: Observable<Customer>;
-  private view: Observable<Customer>;
+  public view: Observable<Customer>;
   private customerService: GenericService<Customer>;
   private gridState: State = {
     sort: [],
